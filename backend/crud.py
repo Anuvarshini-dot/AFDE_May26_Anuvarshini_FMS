@@ -1,5 +1,5 @@
 from sqlalchemy.orm import Session
-from sqlalchemy import or_
+from sqlalchemy import or_, func
 from models import Feedback
 from schemas import FeedbackCreate, FeedbackUpdate
 from typing import Optional
@@ -49,15 +49,17 @@ def search_feedback(
 ):
     query = db.query(Feedback)
     if keyword:
+        kw = f"%{keyword.lower()}%"
         query = query.filter(
             or_(
-                Feedback.participant_name.ilike(f"%{keyword}%"),
-                Feedback.comments.ilike(f"%{keyword}%"),
-                Feedback.program_name.ilike(f"%{keyword}%"),
+                func.lower(Feedback.participant_name).like(kw),
+                func.lower(Feedback.comments).like(kw),
+                func.lower(Feedback.program_name).like(kw),
             )
         )
     if rating:
         query = query.filter(Feedback.rating == rating)
     if program_name:
-        query = query.filter(Feedback.program_name.ilike(f"%{program_name}%"))
+        pn = f"%{program_name.lower()}%"
+        query = query.filter(func.lower(Feedback.program_name).like(pn))
     return query.order_by(Feedback.submitted_at.desc()).all()

@@ -8,13 +8,15 @@ const INITIAL_FILTERS = { keyword: '', rating: '', program_name: '' };
 function FeedbackList() {
   const [feedbackList, setFeedbackList] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
   const [filters, setFilters] = useState(INITIAL_FILTERS);
 
   const fetchAll = () => {
     setLoading(true);
+    setError('');
     getAllFeedback()
       .then((res) => setFeedbackList(res.data))
-      .catch(() => setFeedbackList([]))
+      .catch(() => setError('Failed to load feedback.'))
       .finally(() => setLoading(false));
   };
 
@@ -27,13 +29,14 @@ function FeedbackList() {
     if (!hasFilters) { fetchAll(); return; }
 
     setLoading(true);
+    setError('');
     searchFeedback({
       keyword: keyword || undefined,
       rating: rating ? parseInt(rating) : undefined,
       program_name: program_name || undefined,
     })
       .then((res) => setFeedbackList(res.data))
-      .catch(() => setFeedbackList([]))
+      .catch(() => setError('Search failed. Please try again.'))
       .finally(() => setLoading(false));
   };
 
@@ -50,7 +53,7 @@ function FeedbackList() {
         <form onSubmit={handleSearch} className="filter-form">
           <input
             type="text"
-            placeholder="Search by keyword..."
+            placeholder="Search by keyword in comments..."
             value={filters.keyword}
             onChange={(e) => setFilters({ ...filters, keyword: e.target.value })}
           />
@@ -78,6 +81,8 @@ function FeedbackList() {
 
       {loading ? (
         <div className="loading">Loading...</div>
+      ) : error ? (
+        <div className="alert alert-error">{error}</div>
       ) : feedbackList.length === 0 ? (
         <div className="empty-state">No feedback records found.</div>
       ) : (
@@ -114,9 +119,7 @@ function FeedbackList() {
                   </td>
                   <td>{new Date(f.submitted_at).toLocaleDateString()}</td>
                   <td>
-                    <Link to={`/feedback/${f.feedback_id}`} className="link">
-                      View
-                    </Link>
+                    <Link to={`/feedback/${f.feedback_id}`} className="link">View</Link>
                   </td>
                 </tr>
               ))}

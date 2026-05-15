@@ -4,7 +4,7 @@ import { getFeedbackById, updateFeedback, deleteFeedback } from '../services/api
 
 const RATING_LABELS = ['', 'Poor', 'Fair', 'Good', 'Very Good', 'Excellent'];
 
-function FeedbackDetail() {
+function FeedbackDetail({ role }) {
   const { id } = useParams();
   const navigate = useNavigate();
   const [feedback, setFeedback] = useState(null);
@@ -82,7 +82,7 @@ function FeedbackDetail() {
     <div className="page">
       <div className="detail-header">
         <h2>Feedback Details</h2>
-        {!editing && (
+        {!editing && role === 'admin' && (
           <div className="detail-actions">
             <button className="btn-secondary" onClick={() => setEditing(true)}>Edit</button>
             <button className="btn-danger" onClick={handleDelete}>Delete</button>
