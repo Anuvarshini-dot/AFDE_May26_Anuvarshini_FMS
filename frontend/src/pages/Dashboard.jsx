@@ -27,6 +27,7 @@ function Dashboard() {
   const [feedbackList, setFeedbackList] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
+  const [selectedProgram, setSelectedProgram] = useState('');
 
   useEffect(() => {
     getAllFeedback()
@@ -37,13 +38,18 @@ function Dashboard() {
   if (loading) return <div className="loading">Loading...</div>;
   if (error) return <div className="page"><div className="alert alert-error">{error}</div></div>;
 
-  const totalCount = feedbackList.length;
+  const allPrograms = [...new Set(feedbackList.map((f) => f.program_name))].sort();
+  const filtered = selectedProgram
+    ? feedbackList.filter((f) => f.program_name === selectedProgram)
+    : feedbackList;
+
+  const totalCount = filtered.length;
   const avgRating =
     totalCount > 0
-      ? (feedbackList.reduce((sum, f) => sum + f.rating, 0) / totalCount).toFixed(1)
+      ? (filtered.reduce((sum, f) => sum + f.rating, 0) / totalCount).toFixed(1)
       : null;
 
-  const programStats = feedbackList.reduce((acc, f) => {
+  const programStats = filtered.reduce((acc, f) => {
     const prog = f.program_name;
     if (!acc[prog]) acc[prog] = { count: 0, total: 0 };
     acc[prog].count += 1;
@@ -59,11 +65,25 @@ function Dashboard() {
     }))
     .sort((a, b) => b.count - a.count);
 
-  const recentFeedback = feedbackList.slice(0, 5);
+  const recentFeedback = filtered.slice(0, 5);
 
   return (
     <div className="page">
-      <h2>Dashboard</h2>
+      <div className="dashboard-header">
+        <h2>Dashboard</h2>
+        <div className="program-select-wrapper">
+          <select
+            className="program-select"
+            value={selectedProgram}
+            onChange={(e) => setSelectedProgram(e.target.value)}
+          >
+            <option value="">All Programs</option>
+            {allPrograms.map((p) => (
+              <option key={p} value={p}>{p}</option>
+            ))}
+          </select>
+        </div>
+      </div>
 
       {/* Overall summary */}
       <div className="overview-grid">

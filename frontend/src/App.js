@@ -6,6 +6,8 @@ import Dashboard from './pages/Dashboard';
 import SubmitFeedback from './pages/SubmitFeedback';
 import FeedbackList from './pages/FeedbackList';
 import FeedbackDetail from './pages/FeedbackDetail';
+import ETLUpload from './pages/ETLUpload';
+import ETLAnalytics from './pages/ETLAnalytics';
 import './App.css';
 
 function App() {
@@ -27,6 +29,12 @@ function App() {
               <Route path="/feedback" element={<FeedbackList />} />
               <Route path="/feedback/:id" element={<FeedbackDetail role={role} />} />
               {role === 'user' && <Route path="/submit" element={<SubmitFeedback />} />}
+              {role === 'admin' && (
+                <>
+                  <Route path="/etl/upload" element={<ETLUpload role={role} />} />
+                  <Route path="/etl/analytics" element={<ETLAnalytics role={role} />} />
+                </>
+              )}
               <Route path="*" element={<Navigate to="/dashboard" />} />
             </Routes>
           </div>

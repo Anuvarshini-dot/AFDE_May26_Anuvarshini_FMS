@@ -845,3 +845,604 @@ body {
     min-width: 100%;
   }
 }
+
+/* ─── ETL Pages ─── */
+
+/* Sidebar section label */
+.sidebar-section-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #6b7280;
+  padding: 12px 16px 4px 16px;
+}
+
+/* Page container */
+.page-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.page-header {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.page-header h1 {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #14532d;
+}
+
+.page-subtitle {
+  font-size: 0.9rem;
+  color: #6b7280;
+}
+
+/* Cards */
+.card {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.07);
+}
+
+.card h2 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 18px;
+}
+
+/* Alert variants */
+.alert-danger {
+  background: #fee2e2;
+  color: #991b1b;
+  border: 1px solid #fecaca;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+
+/* Badge variants */
+.badge-success { background: #d1fae5; color: #065f46; }
+.badge-danger  { background: #fee2e2; color: #991b1b; }
+.badge-warning { background: #fef3c7; color: #92400e; }
+.badge-blue    { background: #dbeafe; color: #1e40af; }
+
+/* Table wrapper */
+.table-wrapper {
+  overflow-x: auto;
+}
+
+/* ETL Upload */
+.etl-upload-card {
+  max-width: 680px;
+}
+
+.drop-zone {
+  border: 2px dashed #a5d6a7;
+  border-radius: 10px;
+  padding: 36px 24px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  background: #f9fafb;
+  margin-bottom: 16px;
+}
+
+.drop-zone:hover,
+.drop-zone.drag-over {
+  border-color: #16a34a;
+  background: #f0fdf4;
+}
+
+.drop-zone.has-file {
+  border-color: #16a34a;
+  background: #f0fdf4;
+}
+
+.drop-zone-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: #6b7280;
+}
+
+.upload-icon {
+  font-size: 2rem;
+  color: #16a34a;
+}
+
+.drop-zone-file {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: #1f2937;
+  font-weight: 600;
+}
+
+.file-icon {
+  font-size: 1.5rem;
+}
+
+.file-name {
+  font-size: 0.95rem;
+}
+
+.file-size {
+  font-size: 0.8rem;
+  color: #9ca3af;
+}
+
+.etl-upload-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+/* ETL Result */
+.etl-result-card {
+  border-left: 5px solid #16a34a;
+}
+
+.etl-result-card.result-failed {
+  border-left-color: #dc2626;
+}
+
+.etl-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.etl-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #f9fafb;
+  border-radius: 10px;
+  padding: 16px;
+  gap: 6px;
+}
+
+.etl-stat-value {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #1f2937;
+}
+
+.etl-stat-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #6b7280;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.etl-stat-green .etl-stat-value { color: #15803d; }
+.etl-stat-orange .etl-stat-value { color: #d97706; }
+.etl-stat-red .etl-stat-value { color: #dc2626; }
+
+/* ETL Analytics */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.stat-card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.07);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  text-align: center;
+  border-top: 4px solid #16a34a;
+}
+
+.stat-value {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #14532d;
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* Top / Bottom programs */
+.top-bottom-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.top-program-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  border-left: 5px solid #16a34a;
+}
+
+.bottom-program-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  border-left: 5px solid #f97316;
+}
+
+.top-bottom-icon {
+  font-size: 2rem;
+}
+
+.top-bottom-title {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.top-bottom-name {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-top: 2px;
+}
+
+/* Analytics two-col layout */
+.analytics-two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+/* Rating bars */
+.rating-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.rating-bar-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.rating-bar-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #374151;
+  width: 32px;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.rating-bar-track {
+  flex: 1;
+  height: 16px;
+  background: #f3f4f6;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.rating-bar-fill {
+  height: 100%;
+  border-radius: 8px;
+  transition: width 0.4s ease;
+  min-width: 4px;
+}
+
+.rating-bar-count {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #374151;
+  width: 28px;
+  text-align: left;
+  flex-shrink: 0;
+}
+
+/* Stars */
+.stars {
+  display: inline-flex;
+  align-items: center;
+  gap: 1px;
+}
+
+.star.full  { color: #f59e0b; }
+.star.half  { color: #f59e0b; opacity: 0.6; }
+.star.empty { color: #e5e7eb; }
+
+.star-value {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #6b7280;
+  margin-left: 4px;
+}
+
+/* Empty state inside card */
+.empty-state {
+  color: #9ca3af;
+  font-size: 0.9rem;
+  text-align: center;
+  padding: 16px 0;
+}
+
+/* Btn */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s;
+}
+
+.btn-primary {
+  background: #16a34a;
+  color: white;
+}
+
+.btn-primary:hover  { background: #15803d; }
+.btn-primary:disabled { background: #86efac; cursor: not-allowed; }
+
+.btn-secondary {
+  background: white;
+  color: #374151;
+  border: 1px solid #d1d5db;
+}
+
+.btn-secondary:hover { background: #f9fafb; }
+
+@media (max-width: 900px) {
+  .stats-grid       { grid-template-columns: repeat(2, 1fr); }
+  .etl-stats-grid   { grid-template-columns: repeat(2, 1fr); }
+  .analytics-two-col { grid-template-columns: 1fr; }
+  .top-bottom-row   { grid-template-columns: 1fr; }
+}
+
+/* ─── ETL Header Row ─── */
+.etl-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.etl-title {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #14532d;
+  margin-bottom: 4px;
+}
+
+/* ─── Stat card variants ─── */
+.stat-card-positive {
+  border-top-color: #22c55e !important;
+}
+
+.stat-card-positive .stat-value {
+  color: #15803d;
+}
+
+.stat-card-critical {
+  border-top-color: #ef4444 !important;
+}
+
+.stat-card-critical .stat-value {
+  color: #dc2626;
+}
+
+/* ─── Table hint ─── */
+.table-hint {
+  font-size: 0.78rem;
+  color: #9ca3af;
+  margin-top: 10px;
+  text-align: right;
+}
+
+/* ─── Feedback Insights ─── */
+.insights-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 4px;
+}
+
+.insight-panel {
+  border-radius: 10px;
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.insight-positive {
+  background: #f0fdf4;
+  border: 1.5px solid #86efac;
+}
+
+.insight-negative {
+  background: #fff7ed;
+  border: 1.5px solid #fdba74;
+}
+
+.insight-neutral {
+  background: #eff6ff;
+  border: 1.5px solid #93c5fd;
+}
+
+.insight-panel-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.insight-icon {
+  font-size: 1.1rem;
+}
+
+.insight-panel-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #1f2937;
+  flex: 1;
+}
+
+.insight-count {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #6b7280;
+  background: white;
+  border-radius: 20px;
+  padding: 2px 10px;
+}
+
+.insight-item {
+  background: white;
+  border-radius: 8px;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+}
+
+.insight-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.insight-author {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #374151;
+}
+
+.insight-comment {
+  font-size: 0.85rem;
+  color: #4b5563;
+  line-height: 1.5;
+  font-style: italic;
+  margin: 0;
+}
+
+.insight-empty {
+  font-size: 0.85rem;
+  color: #9ca3af;
+  text-align: center;
+  padding: 16px 0;
+  margin: 0;
+}
+
+.neutral-comments-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 10px;
+}
+
+.loading-text {
+  color: #6b7280;
+  font-size: 0.9rem;
+  padding: 12px 0;
+}
+
+@media (max-width: 700px) {
+  .insights-grid { grid-template-columns: 1fr; }
+  .etl-header-row { flex-direction: column; }
+}
+
+/* ─── Program Filter Dropdown ─── */
+.program-select-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.program-select-wrapper::before {
+  content: '▾';
+  position: absolute;
+  right: 12px;
+  color: #16a34a;
+  font-size: 0.85rem;
+  pointer-events: none;
+  line-height: 1;
+}
+
+.program-select {
+  appearance: none;
+  -webkit-appearance: none;
+  background: white;
+  border: 1.5px solid #a5d6a7;
+  border-radius: 10px;
+  padding: 9px 36px 9px 14px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #1f2937;
+  cursor: pointer;
+  min-width: 200px;
+  box-shadow: 0 1px 4px rgba(22, 163, 74, 0.08);
+  transition: border-color 0.2s, box-shadow 0.2s;
+  font-family: inherit;
+}
+
+.program-select:hover {
+  border-color: #16a34a;
+  box-shadow: 0 2px 8px rgba(22, 163, 74, 0.15);
+}
+
+.program-select:focus {
+  outline: none;
+  border-color: #16a34a;
+  box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.15);
+}
+
+/* Dashboard header row */
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.dashboard-header h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1e3a5f;
+}
+
+/* ETL download row */
+.download-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}

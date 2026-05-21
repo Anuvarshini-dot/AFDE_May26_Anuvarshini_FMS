@@ -15,6 +15,13 @@ function Navbar({ role, onSwitchRole }) {
         {role === 'user' && (
           <Link to="/submit" className={isActive('/submit')}>Submit Feedback</Link>
         )}
+        {role === 'admin' && (
+          <>
+            <div className="sidebar-section-label">ETL Pipeline</div>
+            <Link to="/etl/upload" className={isActive('/etl/upload')}>Import Data</Link>
+            <Link to="/etl/analytics" className={isActive('/etl/analytics')}>Analysis</Link>
+          </>
+        )}
       </div>
 
       <div className="sidebar-footer">
