@@ -13,24 +13,27 @@ body {
 /* App Layout */
 .app-layout {
   display: flex;
-  min-height: 100vh;
+  height: 100vh;
+  overflow: hidden;
 }
 
 .main-content {
   flex: 1;
   overflow-y: auto;
+  height: 100vh;
 }
 
 /* Sidebar */
 .sidebar {
   width: 220px;
-  min-height: 100vh;
+  height: 100vh;
   background: #e8f5e9;
   display: flex;
   flex-direction: column;
   padding: 24px 0 0 0;
   box-shadow: 2px 0 8px rgba(0, 0, 0, 0.08);
   flex-shrink: 0;
+  overflow: hidden;
 }
 
 .sidebar-brand {
